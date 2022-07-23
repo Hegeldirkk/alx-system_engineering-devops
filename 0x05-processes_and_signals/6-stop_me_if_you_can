@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# if you can
+pkill -f infinity_and_beyond
