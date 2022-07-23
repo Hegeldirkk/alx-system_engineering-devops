@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# using pgrep to select bash
+pgrep -l bash
