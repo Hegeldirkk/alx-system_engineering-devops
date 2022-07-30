@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #100-port_listening_on_localhost
-sudo nc localhost -l 89
+sudo nc localhost -l 98
