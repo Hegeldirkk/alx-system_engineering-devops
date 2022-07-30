@@ -5,6 +5,7 @@ while [[ $a -le 9 ]]
 do
 	if [ $a = 8 ]
 	then
+		echo "Best School"
 		echo "Hi"
 	else
 		echo "Best School"
