@@ -3,5 +3,5 @@
 content=$(ls | awk -F '-' '{ print $2 }')
 for namefile in $content
 do
-	echo $namefile
+	echo "$namefile"
 done
