@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #Write a Bash script that displays:The content of the current directory, In a list format Where only the part of the name after the first dash is displayed (refer to the example)
-content=$(ls | awk -F '-' '{ print $2 }')
-for namefile in $content
+for file in *
 do
-	echo "$namefile"
+	echo "$file" | awk -F '-' '{ print $2 }'
 done
