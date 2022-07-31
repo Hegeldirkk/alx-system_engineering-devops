@@ -2,5 +2,5 @@
 #Write a Bash script that displays:The content of the current directory, In a list format Where only the part of the name after the first dash is displayed (refer to the example)
 for file in *
 do
-	echo "$file" | awk -F '-' '{ print $2 }'
+	echo "${file}" | awk -F '-' '{ print $0 }'
 done
