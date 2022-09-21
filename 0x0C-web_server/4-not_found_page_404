@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# write a Bash script that configures a new Ubuntu machine to respect above requirements(this script will be run on the server itself)
+apt-get -y update
+apt-get -y install nginx
+sudo sed -i "42i location /redirect_me {\\n return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\\n}\\n" /etc/nginx/sites-available/default
+echo "Hello World!" > /var/www/html/index.html
+# Configure your Nginx server to have a custom 404 page that contains the string
+sudo sed -i "/server_name _;/a error_page 404 /notfound.html;\nlocation = /notfound.html {\nroot /var/www/html;\ninternal;\n}" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/notfound.html
+service nginx start
