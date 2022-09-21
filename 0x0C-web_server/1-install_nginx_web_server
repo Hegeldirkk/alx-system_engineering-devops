@@ -2,5 +2,5 @@
 # write a Bash script that configures a new Ubuntu machine to respect above requirements(this script will be run on the server itself)
 apt-get -y update
 apt-get -y install nginx
-echo "Hello World !" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 service nginx start
