@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#  you can see that curling port 80 return a page that contains
+service apache2 start
