@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# install and configure HAproxy
+
+# enable dedicated PPA
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.4
+
+#install HAproxy
+apt-get install haproxy=2.4.\*
+
+# balance roundrobin config
+

@@ -14,5 +14,5 @@ sudo sed -i "/server_name _;/a error_page 404 /notfound.html;\nlocation = /notfo
 echo "Ceci n'est pas une page" > /var/www/html/notfound.html
 
 #custom header hostname
-sudo sed -i "49i \t #custom header hostename\n\tadd_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-available/default
+sudo sed -i "40i \t #custom header hostename\n\tadd_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-available/default
 service nginx start
