@@ -11,7 +11,7 @@ echo "Hello World!" > /var/www/html/index.html
 
 # make 404 error page and configure it
 sudo sed -i "/server_name _;/a\t error_page 404 /errorfound.html;\n\tlocation = /errorfound.html {\n\t\troot /var/www/html;\n\t\tinternal;\t\n}" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/erfound.html
+echo "Ceci n'est pas une page" > /var/www/html/errorfound.html
 
 #custom header hostname
 sudo sed -i "/index index.html index.htm index.nginx-debian.html;/a add_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-enabled/default
