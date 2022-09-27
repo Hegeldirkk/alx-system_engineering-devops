@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#  custom header (on web-01 and web-02) header must be X-Served-By
+# custom header (on web-01 and web-02) header must be X-Served-By
 apt-get -y update
 apt-get -y install nginx
 
