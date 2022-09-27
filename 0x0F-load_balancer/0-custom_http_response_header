@@ -10,7 +10,7 @@ sudo sed -i "42i location /redirect_me {\\n return 301 https://www.youtube.com/w
 echo "Hello World!" > /var/www/html/index.html
 
 # make 404 error page and configure it
-sudo sed -i "/server_name _;/a error_page 404 /notfound.html;\nlocation = /notfound.html {\nroot /var/www/html;\ninternal;\n}" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a\t error_page 404 /errorfound.html;\n\tlocation = /errorfound.html {\n\t\troot /var/www/html;\n\t\tinternal;\t\n}" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /var/www/html/erfound.html
 
 #custom header hostname
