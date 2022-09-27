@@ -8,5 +8,11 @@ add-apt-repository ppa:vbernat/haproxy-2.4
 #install HAproxy
 apt-get install haproxy=2.4.\*
 
-# balance roundrobin config
+# enBLEbalance roundrobin config
+sudo sed -i "s/ENABLED=0/ENABLED=1/g" /etc/default/haproxy
 
+# config
+sudo sed -i "\$ a\listen 887-lb-01\n\tbind *:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\tserver 2674-web-01 44.200.182.169:80 check\n\tserver 2674-web-02 44.210.16.218:80 check" /etc/haproxy/haproxy.cfg
+
+#service active
+sudo service nginx start
