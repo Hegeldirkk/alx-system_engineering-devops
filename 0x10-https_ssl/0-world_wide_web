@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www points to your load-balancer IP (lb-01).
+varweb=(www lb-01 web-01 web-02)
+
+#foucntion contains all dig subdomains
+funcA () {
+dig "${varweb[0]}"."$1" | grep -A1 'ANSWER SECTION:' |  awk -v VARIABLESUB="${varweb[0]}" '{print "The subdomain " VARIABLESUB " is a " $4" record and points to " $5}' | tail -n 1
+dig "${varweb[1]}"."$1" | grep -A1 'ANSWER SECTION:' |  awk -v VARIABLESUB="${varweb[1]}" '{print "The subdomain " VARIABLESUB " is a " $4" record and points to " $5}' | tail -n 1
+dig "${varweb[2]}"."$1" | grep -A1 'ANSWER SECTION:' |  awk -v VARIABLESUB="${varweb[2]}" '{print "The subdomain " VARIABLESUB " is a " $4" record and points to " $5}' | tail -n 1
+dig "${varweb[3]}"."$1" | grep -A1 'ANSWER SECTION:' |  awk -v VARIABLESUB="${varweb[3]}" '{print "The subdomain " VARIABLESUB " is a " $4" record and points to " $5}' | tail -n 1
+}
+
+#function contain a specifiq subdomain
+funcB () {
+dig "$2"."$1" | grep -A1 'ANSWER SECTION:' |  awk -v VARIABLESUB="$2" '{print "The subdomain " VARIABLESUB " is a " $4" record and points to " $5}' | tail -n 1
+}
+
+if [[ -z "$2" ]]
+then
+	funcA "$1"
+else
+	funcB "$1" "$2"
+fi
