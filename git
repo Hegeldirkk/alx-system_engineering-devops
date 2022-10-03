@@ -22,7 +22,7 @@ then
 	       echo "please write some message: "
 	       read commit
        done
-       export GITCOMMIT="script git writting - $commit"
+       export GITCOMMIT="script git devops - $commit"
 fi
 
 git commit -m "$GITCOMMIT"
