@@ -15,4 +15,4 @@ echo "Ceci n'est pas une page" > /var/www/html/errorfound.html
 
 #custom header hostname
 sudo sed -i "/index index.html index.htm index.nginx-debian.html;/a add_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-enabled/default
-sudo service nginx start
+sudo service nginx restart
