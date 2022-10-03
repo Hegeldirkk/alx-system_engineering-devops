@@ -14,5 +14,5 @@ sudo sed -i "/server_name _;/a\t error_page 404 /errorfound.html;\n\tlocation = 
 echo "Ceci n'est pas une page" > /var/www/html/errorfound.html
 
 #custom header hostname
-sudo sed -i "/index index.html index.htm index.nginx-debian.html;/a add_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-enabled/default
-service nginx start
+sudo sed -i "/index index.html index.htm index.nginx-debian.html;/a add_header X-Served-By $(cat /etc/hostname);" /etc/nginx/sites-available/default
+sudo service nginx start
