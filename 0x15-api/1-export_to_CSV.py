@@ -4,7 +4,8 @@ Dev: Ikary Ryann
 theme: API
 Desc:Write a Python script that, using this REST API,
 for a given employee ID, returns information
-about his/her TODO list progress."""
+about his/her TODO list progress. export csv"""
+
 
 import re
 import requests
@@ -19,7 +20,7 @@ if __name__ == "__main__":
             id = int(argv[1])
             user_res = requests.get('{}/users/{}'.format(BaseUrl, id)).json()
             todos_res = requests.get('{}/todos'.format(BaseUrl)).json()
-            user_name = user_res.get('name')
+            user_name = user_res.get('username')
             todos = list(filter(lambda x: x.get('userId') == id, todos_res))
             todos_done = list(filter(lambda x: x.get('completed'), todos))
             with open('{}.csv'.format(id), 'w') as file:
