@@ -2,14 +2,15 @@
 """Program: Alx Africa
 Dev: Ikary Ryann
 theme: API
-Desc: script to export data 
+Desc: script to export data
 in the JSON format."""
-
 import json
 import requests
 
+
 """Base Url of API Rest"""
 BaseUrl = 'https://jsonplaceholder.typicode.com'
+
 
 if __name__ == '__main__':
     users_res = requests.get('{}/users'.format(BaseUrl)).json()
