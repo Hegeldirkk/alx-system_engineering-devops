@@ -31,4 +31,10 @@ The second line of all your Bash scripts should be a comment explaining what is 
 ```sudo kill $(sudo lsof -t -i:5000)```
 
 ## run app
-python3 -m web_flask.0-hello_route
+```python3 -m web_flask.0-hello_route```
+
+### prod env
+```gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app```
+
+for the checker 
+```gunicorn --bind 0.0.0.0:6000 web_flask.0-hello_route:app```
